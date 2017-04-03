@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ComicSwap.Models.Comic>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Comics For Sale</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Issue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Condition)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnerID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Issue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Condition)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ComicID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ComicID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ComicID })
+        </td>
+    </tr>
+}
+
+</table>
