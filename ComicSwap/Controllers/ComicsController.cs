@@ -38,6 +38,7 @@ namespace ComicSwap.Controllers
         // GET: Comics/Create
         public ActionResult Create()
         {
+            ViewBag.OwnerIDs = new SelectList(db.Owners, "OwnerID", "FullName");
             return View();
         }
 

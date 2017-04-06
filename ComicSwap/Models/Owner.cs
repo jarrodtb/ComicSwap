@@ -10,6 +10,7 @@ namespace ComicSwap
     public class Owner
     {
         [Key]
+        [Display(Name = "ID")]
         public int OwnerID { get; set; }
 
         [Required]
@@ -19,6 +20,8 @@ namespace ComicSwap
         [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
+        public string FullName { get { return FirstName + " " + LastName; } }
 
         [Required]
         [Display(Name = "Street Address")]
