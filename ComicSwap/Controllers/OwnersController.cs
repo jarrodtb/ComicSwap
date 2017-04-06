@@ -28,11 +28,19 @@ namespace ComicSwap.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Owner owner = db.Owners.Find(id);
+
+            Owner owner = db.Owners
+                .Find(id);
+
+            ViewBag.Comics = db.Comics
+                .Where(c => c.OwnerID == id)
+                .ToList();
+
             if (owner == null)
             {
                 return HttpNotFound();
             }
+
             return View(owner);
         }
 

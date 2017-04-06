@@ -25,6 +25,7 @@ namespace ComicSwap.Models
         public int Issue { get; set; }
 
         [Required]
+        [DataType(DataType.Currency)]
         public float Price { get; set; }
 
         [Required]

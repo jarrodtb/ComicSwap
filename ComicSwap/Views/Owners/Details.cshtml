@@ -65,7 +65,38 @@
         <dd>
             @Html.DisplayFor(model => model.Email)
         </dd>
+    </dl>
 
+    <br/>
+    <h4>Comics For Sale</h4>
+    <dl class="dl-horizontal">
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Title</th>
+                    <th>Issue</th>
+                    <th>Price</th>
+                    <th>Condition</th>
+                </tr>
+                @foreach (var comic in ViewBag.Comics)
+                {
+                    <tr>
+                        <td>
+                            @comic.Title
+                        </td>
+                        <td>
+                            @comic.Issue
+                        </td>
+                        <td>
+                            @comic.Price.ToString("C")
+                        </td>
+                        <td>
+                            @comic.Condition
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
     </dl>
 </div>
 <p>

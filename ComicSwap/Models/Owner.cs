@@ -40,6 +40,6 @@ namespace ComicSwap
         [EmailAddress]
         public string Email { get; set; }
 
-        ICollection<Comic> Comics;
+        public ICollection<Comic> Comics;
     }
 }
