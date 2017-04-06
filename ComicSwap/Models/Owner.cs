@@ -13,12 +13,15 @@ namespace ComicSwap
         public int OwnerID { get; set; }
 
         [Required]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         [Required]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Required]
+        [Display(Name = "Street Address")]
         public string Street { get; set; }
 
         [Required]
