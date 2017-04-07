@@ -132,5 +132,13 @@ namespace ComicSwap.Controllers
             }
             base.Dispose(disposing);
         }
+        
+        [HttpPost]
+        public JsonResult GetOwnerContactInfo(int id)
+        {
+            Owner owner = db.Owners.Find(id);
+
+            return Json("GetOwnerContactInfo call worked for id " + id + "!");
+        }
     }
 }

@@ -4,6 +4,31 @@
     ViewBag.Title = "Index";
 }
 
+<script type="text/javascript">
+    function GetOwner(obj)
+    {
+        alert("Sold by Owner ID: " + obj);
+        
+        $.ajax({
+            url: '/Owners/GetOwnerContactInfo',
+            type: 'POST',
+            datatype: 'json',
+            data: { id: obj },
+            success: function(ret)
+            {
+                alert("Ajax success")
+                //alert(id) //did nothing
+                //alert(obj) //returned id#
+                alert(ret) //return json
+            },
+            error: function(obj)
+            {
+                alert("Failure to retrieve owner information")
+            }
+        });
+    }
+</script>
+
 <h2>Comics For Sale</h2>
 
 <table class="table">
@@ -40,7 +65,8 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ComicID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ComicID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ComicID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ComicID }) |
+            <a href="#" onclick="GetOwner(@item.OwnerID)">Owner</a>
         </td>
     </tr>
 }
