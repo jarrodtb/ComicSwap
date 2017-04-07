@@ -138,7 +138,7 @@ namespace ComicSwap.Controllers
         {
             Owner owner = db.Owners.Find(id);
 
-            return Json("GetOwnerContactInfo call worked for id " + id + "!");
+            return Json("For more information contact " + owner.FullName + " at " + owner.Email);
         }
     }
 }

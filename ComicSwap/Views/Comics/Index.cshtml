@@ -6,9 +6,7 @@
 
 <script type="text/javascript">
     function GetOwner(obj)
-    {
-        alert("Sold by Owner ID: " + obj);
-        
+    {     
         $.ajax({
             url: '/Owners/GetOwnerContactInfo',
             type: 'POST',
@@ -16,7 +14,6 @@
             data: { id: obj },
             success: function(ret)
             {
-                alert("Ajax success")
                 //alert(id) //did nothing
                 //alert(obj) //returned id#
                 alert(ret) //return json
@@ -63,10 +60,10 @@
             @Html.DisplayFor(modelItem => item.Condition)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ComicID }) |
+            @* @Html.ActionLink("Edit", "Edit", new { id=item.ComicID }) | *@
+            @* @Html.ActionLink("Delete", "Delete", new { id = item.ComicID }) | *@
             @Html.ActionLink("Details", "Details", new { id=item.ComicID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ComicID }) |
-            <a href="#" onclick="GetOwner(@item.OwnerID)">Owner</a>
+            <a href="#" onclick="GetOwner(@item.OwnerID)">Owner Info</a>
         </td>
     </tr>
 }
